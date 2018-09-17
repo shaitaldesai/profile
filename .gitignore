@@ -60,5 +60,5 @@ typings/
 # next.js build output
 .next
 
-dist
+client/public/dist/bundle.js
 
