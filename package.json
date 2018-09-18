@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "start": "node server/index.js",
+    "start": "nodemon server/index.js",
     "build": "webpack -d --watch"
   },
   "repository": {
@@ -38,6 +38,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "mongoose": "^5.2.9",
+    "nodemon": "^1.18.4",
     "path": "^0.12.7",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
