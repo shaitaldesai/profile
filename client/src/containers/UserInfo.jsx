@@ -7,6 +7,7 @@ import bindActionCreators from 'redux';
 import { Field, reduxForm } from 'redux-form';
 import { createProfile } from '../actions';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import '../styles/style.css';
 
 class UserInfo extends Component {
@@ -20,9 +21,14 @@ class UserInfo extends Component {
         <div className="label">
           <label>{field.label}</label>
         </div>
-        <input
+   {/* <input
         type="text"  
           {...field.input}
+        /> */}
+        <TextField
+          type="text"  
+            {...field.input}
+          margin="normal"
         />
         {field.meta.touched ? field.meta.error : ''}
       </div>
