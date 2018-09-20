@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import selectFirstName from '../actions/index';
-import selectLastName from '../actions/index';
-import selectEmail from '../actions/index';
 import bindActionCreators from 'redux';
 import { Field, reduxForm } from 'redux-form';
 import { createProfile } from '../actions';
@@ -80,7 +77,7 @@ class UserInfo extends Component {
             name="zipcode"
             component={this.renderField}
           />
-          <button className="button" type="submit">Submit </button>
+          <Button className="button" type="submit">Submit </Button>
         </form>
       </div>
     )
@@ -142,5 +139,5 @@ export default reduxForm({
   connect(null, {createProfile})(UserInfo)
 );
 
-
+//proptypes
 

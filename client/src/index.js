@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import reducers from './reducers';
-import UserInfo from './containers/UserInfo.jsx';
+import UserInfo from './containers/UserInfo';
 import ReduxPromise from 'redux-promise';
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise) (createStore);
 
@@ -14,9 +14,9 @@ class Hello extends Component {
   }
 }
 
-class Goodbye extends Component {
+class Account extends Component {
   render () {
-    return <div>Goodbye!</div>
+    return <div>Account Settings</div>
   }
 }
 
@@ -25,7 +25,7 @@ ReactDOM.render(
    <BrowserRouter>
       <Switch>
         <Route path="/profile" component={UserInfo} />
-        <Route path="/" component={Goodbye} />
+        <Route path="/" component={Account} />
       </Switch>
     </BrowserRouter>
   </Provider>,
