@@ -14,7 +14,7 @@ var UserSchema = new mongoose.Schema({
   email: {type: String, required: true},
   street: String,
   city: String,
-  state: String,
+  userState: String,
   zipCode: Number,
 });
 
@@ -29,7 +29,7 @@ var insertIntoDB = function(userInfo, callback) {
     email: userInfo.email,
     street: userInfo.street,
     city: userInfo.city,
-    state: userInfo.state,
+    userState: userInfo.userState,
     zipCode: userInfo.zipCode,
   });
   user.save(function(err, data) {
@@ -41,4 +41,11 @@ var insertIntoDB = function(userInfo, callback) {
   })
 };
 
+var fetchUserProfile = function (userId, callback) {
+  // User.find({id: userId}).exec(callback);
+  // User.find({'firstName' : 'Shaital'}).exec(callback);
+  User.find({'firstName' : 'Shaital'}, callback);
+}
+
 module.exports.insertIntoDB = insertIntoDB;
+module.exports.fetchUserProfile = fetchUserProfile;

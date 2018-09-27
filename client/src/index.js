@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import reducers from './reducers';
-import UserInfo from './containers/UserInfo';
+import Profile from './containers/Profile';
+import EditProfile from './containers/EditProfile';
 import ReduxPromise from 'redux-promise';
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise) (createStore);
 
@@ -24,7 +25,8 @@ ReactDOM.render(
   <Provider store={ createStoreWithMiddleware(reducers) } >
    <BrowserRouter>
       <Switch>
-        <Route path="/profile" component={UserInfo} />
+        <Route path="/Profile" component={Profile} />
+        <Route path="/EditProfile" component={EditProfile} />
         <Route path="/" component={Account} />
       </Switch>
     </BrowserRouter>
