@@ -77,7 +77,7 @@ class EditProfile extends Component {
           />
           <Field
             label="Zipcode"
-            name="zipcode"
+            name="zipCode"
             component={this.renderField}
           />
           <Button className="button" type="submit">Submit </Button>
@@ -114,8 +114,8 @@ function validate (values)  {
     errors.userState = 'Please enter your state'
   }
 
-  if (!values.zipcode) {
-    errors.zipcode = 'Please enter your zipcode'
+  if (!values.zipCode) {
+    errors.zipCode = 'Please enter your zipcode'
   }
 
   return errors;
