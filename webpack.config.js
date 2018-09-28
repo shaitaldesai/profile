@@ -15,13 +15,13 @@ module.exports = {
     extensions: ['.js', '.jsx', '.css']
   },
   module: {
-  	rules: [
+    rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         include : SRC_DIR,
         use: {
-          loader : 'babel-loader',              	
+          loader : 'babel-loader',                
         },
       },
       {
@@ -53,7 +53,7 @@ module.exports = {
       //   include: [
       //     path.resolve(__dirname, "client/public/images")
       //   ],
-      // },     	
-	  ]
-	}
+      // },       
+    ]
+  }
 };
