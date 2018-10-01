@@ -23,7 +23,11 @@ export function createProfile (values) {
 // }
 
 export function getProfile () {
-  const request = axios.get('/newProfile')
+  const request = axios({
+    method: 'GET',
+    url: '/newProfile',
+    responseType: 'json'
+  })
   return {
     type: GET_PROFILE,
     payload: request
