@@ -47,9 +47,7 @@ var insertIntoDB = function(userInfo, callback) {
 };
 
 var fetchUserProfile = function (userId, callback) {
-  // User.find({id: userId}).exec(callback);
-  // User.find({'firstName' : 'Shaital'}).exec(callback);
-  User.find({'userId' : 5678}, function (err, data) {
+  User.find({'userId' : userId}, function (err, data) {
     if (err) {
       console.log('error finding record...', err.message)
     } else {

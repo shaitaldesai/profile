@@ -16,8 +16,10 @@ app.use(function(req, res, next) { 
 ); 
 app.use(express.static(path.join(__dirname, '../client/public/dist')));
 
-app.get('/newProfile', function (req, res){
-	db.fetchUserProfile(req, (err, userProfile) => {
+app.get('/getProfile', function (req, res){
+  let userId = req.query.userId;
+  console.log('GETPROFILE IN SERVER:', userId);
+	db.fetchUserProfile(userId, (err, userProfile) => {
     if (err) {
       res.status(404);
       res.end();

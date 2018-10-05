@@ -16,8 +16,8 @@ export function createProfile (values) {
   };
 }
 
-export function getKarma (values) {
-  const request = axios.get(`https://u0mxny2nq6.execute-api.us-east-2.amazonaws.com/default/karma-points_get?id=1234`);
+export function getKarma (value) {
+  const request = axios.get(`https://u0mxny2nq6.execute-api.us-east-2.amazonaws.com/default/karma-points_get?${value}`);
   return {
     type: GET_KARMA,
     payload: request
@@ -27,7 +27,7 @@ export function getKarma (values) {
 export function getProfile (value) {
   const request = axios({
     method: 'GET',
-    url: `/newProfile?userId=${value}`,
+    url: `/getProfile?userId=${value}`,
     responseType: 'json',
   })
   return {
