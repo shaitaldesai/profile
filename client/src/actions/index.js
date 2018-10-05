@@ -5,28 +5,30 @@ const ROOT_URL = '/profile';
 
 export const POST_PROFILE = 'POST_PROFILE';
 export const GET_PROFILE = 'GET_PROFILE';
+export const GET_KARMA = 'GET_KARMA';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 
 export function createProfile (values) {
-  const request = axios.post(ROOT_URL, values);
+  const request = axios.post('/postProfile', values);
   return {
     type: POST_PROFILE,
     payload: request
   };
 }
 
-// export function getProfile (values) {
-//   const request = axios.get(ROOT_URL, values);
-//   return {
-//     type: POST_PROFILE,
-//     payload: request
-//   };
-// }
+export function getKarma (values) {
+  const request = axios.get(`https://u0mxny2nq6.execute-api.us-east-2.amazonaws.com/default/karma-points_get?id=1234`);
+  return {
+    type: GET_KARMA,
+    payload: request
+  };
+}
 
-export function getProfile () {
+export function getProfile (value) {
   const request = axios({
     method: 'GET',
-    url: '/newProfile',
-    responseType: 'json'
+    url: `/newProfile?userId=${value}`,
+    responseType: 'json',
   })
   return {
     type: GET_PROFILE,
@@ -34,3 +36,10 @@ export function getProfile () {
   };
 }
 
+export function updateProfile (value) {
+  const request = axios.post('/editProfile', value);
+  return {
+    type: UPDATE_PROFILE,
+    payload: request
+  };
+}
