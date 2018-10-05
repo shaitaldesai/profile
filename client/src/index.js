@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import promise from 'redux-promise';
 import { createStore, applyMiddleware, compose } from 'redux';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { HashRouter, Route, Switch} from 'react-router-dom';
 import reducers from './reducers';
 import Profile from './containers/Profile';
 import EditProfile from './containers/EditProfile';
@@ -16,12 +16,12 @@ const store = createStore(reducers, /* preloadedState, */ composeEnhancers(
  ));
 ReactDOM.render(
   <Provider store={ store } > 
-   <BrowserRouter>
+   <HashRouter>
       <Switch>
         <Route exact path="/" component={EditProfile} />
         <Route path="/profile" component={Profile} />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   </Provider>,
   document.getElementById("root")
 );

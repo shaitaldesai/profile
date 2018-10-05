@@ -17,7 +17,7 @@ export function createProfile (values) {
 }
 
 export function getKarma (value) {
-  const request = axios.get(`https://u0mxny2nq6.execute-api.us-east-2.amazonaws.com/default/karma-points_get?${value}`);
+  const request = axios.get(`https://u0mxny2nq6.execute-api.us-east-2.amazonaws.com/default/karma-points_get?id=${value}`);
   return {
     type: GET_KARMA,
     payload: request

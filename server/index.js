@@ -17,17 +17,32 @@ app.use(function(req, res, next) { 
 app.use(express.static(path.join(__dirname, '../client/public/dist')));
 
 app.get('/getProfile', function (req, res){
-  let userId = req.query.userId;
-  console.log('GETPROFILE IN SERVER:', userId);
-	db.fetchUserProfile(userId, (err, userProfile) => {
-    if (err) {
-      res.status(404);
-      res.end();
-    } else {
-      res.status(200);
-      res.json(userProfile[0]);
-    }
-	});
+  let fakeData = {
+    userId: 1111,
+    firstName: 'Jim',
+    lastName: 'Smith',
+    email: 'john.smith@smith.com',
+    street: 'Johnsmith dr.',
+    city: 'Smithcity',
+    userState: 'Bigstate',
+    zipCode: '00000' 
+  }
+  console.log('QUERY:', !req.query.userId == false);
+  if (req.query.userId == true) {
+    let userId = req.query.userId;
+  	db.fetchUserProfile(userId, (err, userProfile) => {
+      if (err) {
+        res.status(404);
+        res.end();
+      } else {
+        res.status(200);
+        res.json(userProfile[0]);
+      }
+	  });
+  } else {
+    res.status(200);
+    res.json(fakeData);
+  }
 });
 
 app.post('/postProfile',function(req,res){
