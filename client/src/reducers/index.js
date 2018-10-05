@@ -1,15 +1,14 @@
 import { combineReducers } from 'redux';
 import {reducer as formReducer} from 'redux-form';
-import profile from './reducer_profile';
+import profile from './reducer_profile.js';
 import userProfile from './reducer_getProfile.js';
-// import Karma from './reducer_karma';
+import karma from './reducer_karma.js';
 
-//telling redux: please create application state as follows
 const rootReducer = combineReducers({
-	// karma: Karma,
+	karma: karma,
 	profile: profile,
 	userProfile: userProfile,
-	form: formReducer,
+	form: formReducer
 });
 
 export default rootReducer;

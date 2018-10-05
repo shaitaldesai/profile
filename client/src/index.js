@@ -1,35 +1,52 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import promise from 'redux-promise';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import reducers from './reducers';
 import Profile from './containers/Profile';
 import EditProfile from './containers/EditProfile';
 import ReduxPromise from 'redux-promise';
+
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise) (createStore);
-
-class Hello extends Component {
-  render () {
-    return <div>Hello!</div>
-  }
-}
-
-class Account extends Component {
-  render () {
-    return <div>Account Settings</div>
-  }
-}
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, /* preloadedState, */ composeEnhancers(
+   applyMiddleware(promise)
+ ));
 ReactDOM.render(
-  <Provider store={ createStoreWithMiddleware(reducers) } >
+  <Provider store={ store } > 
    <BrowserRouter>
       <Switch>
-        <Route path="/Profile" component={Profile} />
-        <Route path="/EditProfile" component={EditProfile} />
-        <Route path="/" component={Account} />
+        <Route exact path="/" component={EditProfile} />
+        <Route path="/profile" component={Profile} />
       </Switch>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );
+
+
+// import React, { Component } from "react";
+// import ReactDOM from "react-dom";
+// import { Provider } from 'react-redux';
+// import { createStore, applyMiddleware } from 'redux';
+// import { BrowserRouter, Route, Switch} from 'react-router-dom';
+// import reducers from './reducers';
+// import Profile from './containers/Profile';
+// import EditProfile from './containers/EditProfile';
+// import ReduxPromise from 'redux-promise';
+
+// const createSoreWithMiddleware = applyMiddleware(ReduxPromise) (createStore);
+
+// ReactDOM.render(
+//   <Provider store={ createSoreWithMiddleware(reducers) } >
+//    <BrowserRouter>
+//       <Switch>
+//         <Route exact path="/" component={EditProfile} />
+//         <Route path="/profile" component={Profile} />
+//       </Switch>
+//     </BrowserRouter>
+//   </Provider>,
+//   document.getElementById("root")
+// );
