@@ -40,29 +40,38 @@ class Profile extends Component {
     return (
       <div>
         <Link to="/" >Edit Profile</Link>
+        <h2>Profile</h2>
         <ul>
             <li>
+              <span>Karma Points: </span>
               {this.props.karma}
             </li> 
             <li>
+            <span>First Name: </span>
               {this.props.firstName}
             </li>
             <li>
+            <span>Last Name: </span>
               {this.props.lastName}
             </li>
             <li>
+            <span>Email: </span>
               {this.props.email}
             </li>
             <li>
+            <span>Street: </span>
               {this.props.street}
             </li>
             <li>
+            <span>City: </span>
               {this.props.city}
             </li>
             <li>
+            <span>State: </span>
               {this.props.userState}
-            </li> 
+            </li>
             <li>
+            <span>Zip Code: </span> 
               {this.props.zipCode}
             </li>
         </ul>

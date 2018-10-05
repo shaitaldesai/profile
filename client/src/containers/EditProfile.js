@@ -67,57 +67,57 @@ class EditProfile extends Component {
     return (
       <div>
       <Link to="/profile" >Profile</Link>
+      <h2>Edit Profile</h2>
       <div className="main">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
           <div>
-            <Button type="button" onClick={() => this.props.getProfile(5678)} >Load Account Information
+            <Button type="button" onClick={() => this.props.getProfile(this.props.initialValues.userId || null)} >Load Account Information
             </Button>
           </div>
           <Field
-            placeholder={this.props.initialValues.userId}
+            placeholder={"UserId"}
             label="userId"
             name="userId"
             component={this.renderField}
           />
           <Field
-            // valueOf={this.props.initialValues.firstName}
-            placeholder={this.props.initialValues.firstName}
+            placeholder={"First Name"}
             label="First Name"
             name="firstName"
             component={this.renderField}
           />
           <Field
-            value={this.props.initialValues.lastName}
+            placeholder={"Last Name"}
             label="Last Name"
             name="lastName"
             component={this.renderField}
           />
           <Field
-            placeholder={this.props.email}
+            placeholder={"Email"}
             label="Email"
             name="email"
             component={this.renderField}
           />
           <Field
-            placeholder={this.props.street}
+            placeholder={"Street"}
             label="Street"
             name="street"
             component={this.renderField}
           />
           <Field
-            placeholder={this.props.city}
+            placeholder={"City"}
             label="City"
             name="city"
             component={this.renderField}
           />
           <Field
-            placeholder={this.props.userState}
+            placeholder={"State"}
             label="State"
             name="userState"
             component={this.renderField}
           />
           <Field
-            placeholder={this.props.zipCode}
+            placeholder={"Zip Code"}
             label="Zipcode"
             name="zipCode"
             component={this.renderField}
@@ -132,38 +132,38 @@ class EditProfile extends Component {
   }
 }
 
-// function validate (values)  {
-//   const errors = {};
-//   if (!values.firstName) {
-//     errors.firstName = 'Please enter your first name'
-//   }
+function validate (values)  {
+  const errors = {};
+  if (!values.firstName) {
+    errors.firstName = 'Please enter your first name'
+  }
 
-//   if (!values.lastName) {
-//     errors.lastName = 'Please enter your last name'
-//   }
+  if (!values.lastName) {
+    errors.lastName = 'Please enter your last name'
+  }
 
-//   if (!values.email) {
-//     errors.email = 'Please enter your email'
-//   }
+  if (!values.email) {
+    errors.email = 'Please enter your email'
+  }
 
-//   if (!values.street) {
-//     errors.street = 'Please enter your street address'
-//   }
+  if (!values.street) {
+    errors.street = 'Please enter your street address'
+  }
 
-//   if (!values.city) {
-//     errors.city = 'Please enter your city'
-//   }
+  if (!values.city) {
+    errors.city = 'Please enter your city'
+  }
 
-//   if (!values.userState) {
-//     errors.userState = 'Please enter your state'
-//   }
+  if (!values.userState) {
+    errors.userState = 'Please enter your state'
+  }
 
-//   if (!values.zipCode) {
-//     errors.zipCode = 'Please enter your zipcode'
-//   }
+  if (!values.zipCode) {
+    errors.zipCode = 'Please enter your zipcode'
+  }
 
-//   return errors;
-// }
+  return errors;
+}
 
 function mapStateToProps (state) {
   //whatever is returned will show up as props inside of Profile
@@ -190,7 +190,7 @@ function mapDispatchToProps (dispatch) {
 
 // export default connect (mapStateToProps, mapDispatchToProps) (UserInfo);
 EditProfile = reduxForm({
-  // validate: validate,
+  validate: validate,
   form: 'profileForm',
   enableReinitialize: true,
   // make sure dirty fields (those the user has already edited)

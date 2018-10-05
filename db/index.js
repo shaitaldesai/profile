@@ -75,26 +75,6 @@ var updateUserProfile = function (userInfo, callback) {
         callback(err, data);
       }
   });
-  // User.find({'userId': id}, (data) => {
-  //   var user = new User({ 
-  //     userId: data.userId,
-  //     firstName: data.firstName,
-  //     lastName: data.lastName,
-  //     email: data.email,
-  //     street: data.street,
-  //     city: data.city,
-  //     userState: data.userState,
-  //     zipCode: data.zipCode,
-  //     karma: data.karma
-  //   });
-  //   user.save(function (err, data) {
-  //     if (err) {
-  //       console.log('error inserting user text...', err.message);
-  //     } else {
-  //       callback(err, data);
-  //     }
-  //   });
-  // });
 }
 
 module.exports.insertIntoDB = insertIntoDB;
