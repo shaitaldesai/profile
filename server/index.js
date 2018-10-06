@@ -36,12 +36,12 @@ app.get('/getProfile', function (req, res){
         res.end();
       } else {
         res.status(200);
-        res.json(userProfile[0]);
+        res.send(userProfile[0]);
       }
 	  });
   } else {
     res.status(200);
-    res.json(fakeData);
+    res.send(fakeData);
   }
 });
 
