@@ -9,7 +9,7 @@ module.exports = {
   mode: "development",
   output: {
     path: DIST_DIR,
-    filename: '/bundle.js'
+    filename: 'bundle.js'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css']
