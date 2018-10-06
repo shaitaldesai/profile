@@ -71,7 +71,7 @@ class EditProfile extends Component {
       <div className="main">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
           <div>
-            <Button type="button" onClick={() => this.props.getProfile(this.props.initialValues.userId || null)} >Load Account Information
+            <Button type="button" onClick={() => this.props.getProfile(this.props.initialValues.userId || 'null')} >Load Account Information
             </Button>
           </div>
           <Field
