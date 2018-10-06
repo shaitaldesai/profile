@@ -27,7 +27,7 @@ app.get('/getProfile', function (req, res){
     userState: 'Bigstate',
     zipCode: '00000' 
   }
-  if (req.query.userId) {
+  if (req.query.userId && req.query.userId !== 'null') {
     let userId = req.query.userId;
   	db.fetchUserProfile(userId, (err, userProfile) => {
       if (err) {
@@ -38,7 +38,7 @@ app.get('/getProfile', function (req, res){
         res.send(userProfile[0]);
       }
 	  });
-  } else {
+  } else if (!req.query.userId || req.query.userId === 'null') {
     res.status(200);
     res.send(fakeData);
   }
