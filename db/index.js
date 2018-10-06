@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/thesis-profile');
+const DB_URI = process.env.DB_URI || 'mongodb://localhost/thesis-profile';
+mongoose.connect(DB_URI);
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
