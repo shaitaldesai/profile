@@ -27,8 +27,7 @@ app.get('/getProfile', function (req, res){
     userState: 'Bigstate',
     zipCode: '00000' 
   }
-  console.log('QUERY:', !req.query.userId == false);
-  if (req.query.userId == true) {
+  if (req.query.userId) {
     let userId = req.query.userId;
   	db.fetchUserProfile(userId, (err, userProfile) => {
       if (err) {
