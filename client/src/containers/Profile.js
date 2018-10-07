@@ -32,7 +32,8 @@ class Profile extends Component {
     // const request = axios.get('https://u0mxny2nq6.execute-api.us-east-2.amazonaws.com/default/karma-points_get?id=1234');
     // console.log('KARMA:', request);
     // this.props.getKarma('4321');
-    this.props.getProfile(this.props.userId);
+//     this.props.getProfile(this.props.userId);
+       this.props.getProfile(1234);
   }
 
   render () {
